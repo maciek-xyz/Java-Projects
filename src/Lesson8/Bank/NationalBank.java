@@ -1,18 +1,26 @@
 package Lesson8.Bank;
 
+import Lesson8.Bank.restricted.Bank;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class NationalBank {
+    private Bank bank;
 
-    List<String> banksList = new ArrayList<>();
+    List<Bank> banksList = new ArrayList<>();
 
     void registerBank(Bank bank) {
-        banksList.add(bank.getName());
+        banksList.add(bank);
     }
 
-    Bank getByName(String bankName) {
-        System.out.println(bankName);
-        return null;
+
+    public Bank getBankWithBanksList(Bank bank) throws BankNotFoundException {
+        if(banksList.contains(bank)) {
+            return bank;
+        } else {
+            throw new BankNotFoundException();
+        }
     }
+
 }

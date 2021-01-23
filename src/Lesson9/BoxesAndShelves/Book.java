@@ -6,4 +6,8 @@ public class Book extends Item {
         super(name);
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }
