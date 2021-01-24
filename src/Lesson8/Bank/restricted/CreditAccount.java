@@ -5,6 +5,7 @@ import Lesson8.Bank.ReachedCreditLimitException;
 import Lesson8.Bank.restricted.Account;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public class CreditAccount extends Account {
     Account account;
@@ -25,11 +26,13 @@ public class CreditAccount extends Account {
         balance1 = balance1.subtract(amount);
         if (balance1.compareTo(newLimit) >= 0) {
             setBalance(balance1);
+            addNewTransaction(TransactionType.WITH_DRAW, LocalDateTime.now(), balance1);
             return balance1;
         } else {
             throw new ReachedCreditLimitException("Current balance: " + getBalance() + ", Limit: " + limit);
         }
     }
+
 }
 
 

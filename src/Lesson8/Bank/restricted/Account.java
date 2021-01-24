@@ -4,16 +4,19 @@ import Lesson8.Bank.BankNotFoundException;
 import Lesson8.Bank.NonSufficientFundsException;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public abstract class Account {
     private String number;
     private BigDecimal balance;
     private BigDecimal percentage;
+    private TransactionHistory transactionHistory;
 
 
     public Account(String number, BigDecimal balance) {
         this.number = number;
         this.balance = balance;
+        this.transactionHistory = new TransactionHistory(balance);
     }
 
     void topUp(BigDecimal amount) {
@@ -53,6 +56,14 @@ public abstract class Account {
 
     public BigDecimal getPercentage() {
         return percentage;
+    }
+
+    public TransactionHistory getTransactionHistory() {
+        return transactionHistory;
+    }
+
+    protected void addNewTransaction(TransactionType transactionType, LocalDateTime date, BigDecimal currentBalance) {
+        transactionHistory.addNewTransaction(transactionType, date, currentBalance);
     }
 
     @Override
