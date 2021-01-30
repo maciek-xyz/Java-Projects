@@ -1,12 +1,8 @@
 package Lesson8.Bank.restricted;
 
 import Lesson8.Bank.AccountNotFundException;
-import Lesson8.Bank.restricted.Account;
-
-import javax.security.auth.login.AccountNotFoundException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Bank{
     private String name;

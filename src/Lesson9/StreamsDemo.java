@@ -26,7 +26,7 @@ public class StreamsDemo {
         System.out.println("==============all men under 65 years==================");
         List<Person> menUnder65 = personsList.stream()
                 .filter(x -> x.sex.equals(MALE))
-                .filter(x -> x.birthDay.isBefore(LocalDate.of(1956, 1, 14)))
+                .filter(x -> x.birthDay.isBefore(LocalDate.of(1956, LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth())))
                 .collect(Collectors.toList());
         System.out.println(menUnder65);
 
@@ -39,7 +39,7 @@ public class StreamsDemo {
 
         System.out.println("==============all persons younger than 18 years from Krakow==================");
         List<Person> personsYoungerThan18YearsFromKrakow = personsList.stream()
-                .filter(x -> x.birthDay.isAfter(LocalDate.of(2003,1,14)))
+                .filter(x -> x.birthDay.isAfter(LocalDate.of(2003,LocalDate.now().getMonth(),LocalDate.now().getDayOfMonth())))
                 .filter(x -> x.addres.getCity().equals("Kraków"))
                 .collect(Collectors.toList());
         System.out.println(personsYoungerThan18YearsFromKrakow);
@@ -65,7 +65,7 @@ public class StreamsDemo {
         System.out.println("==============number of men after 65 years==================");
         long numberOfManAfter65 = personsList.stream()
                 .filter(x -> x.sex.equals(MALE))
-                .filter(x -> x.birthDay.isAfter(LocalDate.of(1956, 1, 14)))
+                .filter(x -> x.birthDay.isAfter(LocalDate.of(1956, LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth())))
                 .count();
         System.out.println("Number of men after 65 years: " + numberOfManAfter65);
 

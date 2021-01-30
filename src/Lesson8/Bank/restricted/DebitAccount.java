@@ -19,10 +19,4 @@ public class DebitAccount extends Account {
         }
         return super.getBalance();
     }
-
-    @Override
-    public BigDecimal applyPercents() {
-        return super.applyPercents();
-    }
-
 }
