@@ -15,14 +15,19 @@ public class ImmutableCarDemo {
 
         Car car = new Car("Opel", "Corsa", engine, wheels);
 
+
         System.out.println(car);
         engine.setHorsePower(300);
         System.out.println(engine.getHorsePower());
         System.out.println(car.getEngine().getHorsePower());
-        System.out.println(car.getWheels().get(0));
+
 
         wheel1.setRadius(100);
         System.out.println(car);
+
+        car.getEngine().setHorsePower(400);
+        System.out.println(car);
+
 
 
     }

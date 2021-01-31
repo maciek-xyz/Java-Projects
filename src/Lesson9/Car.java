@@ -1,6 +1,7 @@
 package Lesson9;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public final class Car {
     private final String manufacturer;
@@ -31,11 +32,11 @@ public final class Car {
     }
 
     public Engine getEngine() {
-        return engine;
+        return new Engine(engine.getType(), engine.getHorsePower(), engine.getVolume());
     }
 
     public List<Wheel> getWheels() {
-        return Collections.unmodifiableList(wheels);
+        return new CopyOnWriteArrayList<>();
     }
 
     @Override
